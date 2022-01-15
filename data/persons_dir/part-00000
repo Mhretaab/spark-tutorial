@@ -1,0 +1,4 @@
+Person{name='Adam', Age=35, occupation='Engineer'}
+Person{name='John', Age=19, occupation='Student'}
+Person{name='Ine', Age=31, occupation='Nurse'}
+Person{name='Sophia', Age=60, occupation='Scientist'}

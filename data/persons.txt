@@ -1,0 +1,4 @@
+Adam~35~Engineer
+John~19~Student
+Ine~31~Nurse
+Sophia~60~Scientist
