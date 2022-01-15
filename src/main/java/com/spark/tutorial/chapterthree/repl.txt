@@ -1,0 +1,42 @@
+Creating and filtering RDD
+============================
+
+scala>val stringRdd=sc.parallelize(Array("Java","Scala","Python","Ruby","JavaScript","Java"))
+scala>val filteredRdd = stringRdd.filter(s =>s.startsWith("J"))
+scala>val list = filteredRdd.collect
+scala> list
+
+Word count on RDD
+==================
+scala>val pairRDD=stringRdd.map( s => (s,1))
+scala>val wordCountRDD=pairRDD.reduceByKey((x,y) =>x+y)
+scala>val wordCountList=wordCountRDD.collect
+scala>wordCountList
+
+Finding the sum of all even numbers in an RDD of integers
+===========================================================
+scala>val intRDD = sc.parallelize(Array(1,4,5,6,7,10,15))
+scala>val evenNumbersRDD=intRDD.filter(i => (i%2==0))
+scala>val sum =evenNumbersRDD.sum
+
+Counting the number of words in a file
+========================================
+scala>val file=sc.textFile("/usr/local/spark/examples/src/main/resources/people.txt")
+scala>val flattenFile = file.flatMap(s =>s.split(", "))
+scala>flattenFile.collect
+scala>val count = flattenFile.count
+scala>flattenFile.toDebugString
+
+
+Spark SQL Read JSON File
+=========================
+import org.apache.spark.sql.SparkSession
+import spark.implicits._
+
+val spark = SparkSession.builder().appName("Spark SQL basic example").getOrCreate()
+val df = spark.read.json("/usr/local/spark/examples/src/main/resources/people.json")
+df.createOrReplaceTempView("people")
+val sqlDF = spark.sql("SELECT * FROM people")
+sqlDF.show()
+
+
