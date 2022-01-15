@@ -18,6 +18,16 @@ repositories {
 dependencies {
     // https://mvnrepository.com/artifact/org.apache.spark/spark-core
     implementation group: 'org.apache.spark', name: 'spark-core_2.13', version: '3.2.0'
+
+    // https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws
+    //implementation group: 'org.apache.hadoop', name: 'hadoop-aws', version: '3.3.1'
+
+    // https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector
+    implementation group: 'com.datastax.spark', name: 'spark-cassandra-connector_2.12', version: '3.1.0'
+
+    // https://mvnrepository.com/artifact/org.apache.spark/spark-sql
+    compileOnly group: 'org.apache.spark', name: 'spark-sql_2.13', version: '3.2.0'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }

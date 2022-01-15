@@ -1,0 +1,5 @@
+CREATE TABLE my_keyspace.emp (
+    empid int PRIMARY KEY,
+    emp_dept text,
+    emp_name text
+)
