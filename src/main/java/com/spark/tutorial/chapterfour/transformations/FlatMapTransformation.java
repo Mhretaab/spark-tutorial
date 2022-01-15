@@ -1,4 +1,4 @@
-package com.spark.tutorial.chapterfour;
+package com.spark.tutorial.chapterfour.transformations;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
