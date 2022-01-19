@@ -26,6 +26,7 @@ public class ReduceAndFoldAndAggregate {
 
 		JavaRDD<Integer> rdd = javaSparkContext.parallelize(Arrays.asList(0, 1, 2, 3, 4, 5), 3);
 		System.out.println("The no of partitions are ::" + rdd.getNumPartitions());
+		//(zero value, accumulator function on each partition, combining the output of each accumulator)
 		String concat = rdd.aggregate("X", (x, y) -> x + y, (x, z) -> x + z);
 		System.out.println("The aggerate value is ::" + concat);
 		Integer sumByAgg = rdd.aggregate(0, (x, y) -> x + y, (x, z) -> x + z);
